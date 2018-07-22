@@ -1,7 +1,8 @@
-version: '2'
+version: '2.3'
 services:
   jupyter:
     image: tensorflow/tensorflow:1.9.0-gpu-py3
+    runtime: nvidia
     ports:
       - "8888:8888"
     volumes:
@@ -10,6 +11,7 @@ services:
     command: ["jupyter", "notebook", "--allow-root", "/root/notebooks"]
   tensorboard:
     image: tensorflow/tensorflow:1.9.0-gpu-py3
+    runtime: nvidia
     ports:
       - "6006:6006"
     volumes_from:
